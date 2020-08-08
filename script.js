@@ -1,15 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
 var lowercase = arrayLowToHigh(97, 122);
 var uppercase = arrayLowToHigh(65, 90);
 var numbers = arrayLowToHigh(48, 57);
 var symbols = arrayLowToHigh(33, 47).concat(arrayLowToHigh (58, 64)).concat(arrayLowToHigh(91, 96)).concat(
   arrayLowToHigh(123, 126));
-
 var passwordDisplay = document.getElementById('password');
 
+// function to procure character arrays from charCode
 function arrayLowToHigh(low, high) {
   var array = [];
   for (let i = low; i <= high; i++) {
@@ -17,7 +15,8 @@ function arrayLowToHigh(low, high) {
    }
   return array
 }
- 
+
+// function to generate random password
 function generatePassword(rangeChar, upChar, specChar, numChar) {
   let passChar = lowercase;
   if (upChar === "yes") passChar = passChar.concat(uppercase);
@@ -32,12 +31,10 @@ function generatePassword(rangeChar, upChar, specChar, numChar) {
  return passwordChar.join('');
  console.log (passwordChar.join(''));
  var passwordText = document.querySelector("#password");
-  
-   
-  }
+}
 
+// function to call criteria prompts and execute generatePassword
 function writePassword() {
-  
   var upChar = prompt("Do you want to use uppercase letters? 'yes' or 'no'");
   upChar = upChar.toLowerCase();
   if (upChar === "yes" || upChar === "no") {
