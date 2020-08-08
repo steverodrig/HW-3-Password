@@ -43,25 +43,42 @@ function writePassword() {
   if (upChar === "yes" || upChar === "no") {
     alert("You chose " + upChar + " for uppercase letters.");
   }
-
+  else {
+    alert("Error! Please enter a correct value");
+    var upChar = prompt("Do you want to use uppercase letters? 'yes' or 'no'");
+    alert("You chose " + upChar + " for uppercase letters.");
+  }
+    
   var numChar = prompt("Do you want to use numbers? 'yes' or 'no'");
   numChar = numChar.toLowerCase();
   if (numChar === "yes" || numChar === "no") {
     alert("You chose " + numChar + " for numbers.");
   }
-  
+  else {
+    alert("Error! Please enter a correct value");
+    var numChar = prompt("Do you want to use numbers? 'yes' or 'no'");
+    alert("You chose " + numChar + " for numbers.");
+  }
+    
   var specChar = prompt("Do you want to use special characters? 'yes' or 'no'");
   specChar = specChar.toLowerCase();
   if (specChar === "yes" || specChar === "no") {
     alert("You chose " + specChar +  " for special characters.");
   }
-
-  var rangeChar = prompt("How many characters long do you need your password; between '8' and '128'");
-  if (rangeChar >=8 && rangeChar <=128) {
-    alert("You chose a password " + rangeChar + " characters long.");
+  else {
+    alert("Error! Please enter a correct value");
+    var specChar = prompt("Do you want to use special characters? 'yes' or 'no'");
+    alert("You chose " + specChar +  " for special characters.");
   }
-
-  var passLength = rangeChar.value
+    
+  var rangeChar = prompt("How many characters long do you need your password; between 8 and 128");
+  while (rangeChar <= 7 || rangeChar >= 129) {
+    alert("Password length must be between 8 and 128 characters. Please enter valid amount.");
+    var rangeChar = prompt("How many characters long do you need your password; between 8 and 128");
+  }
+    alert("You chose a password " + rangeChar + " characters long.")
+  
+    var passLength = rangeChar.value
 
   password = generatePassword(rangeChar, upChar, specChar, numChar);
 
@@ -71,3 +88,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
